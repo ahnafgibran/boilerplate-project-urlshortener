@@ -14,13 +14,13 @@ exports.isValidUrl = [
       let url = new URL(req.body.url)
       dns.lookup(url.hostname, function(err, address, family) {
         if (err) {
-          res.status(400).json({ error: 'invalid url' })
+          res.json({ error: 'invalid url' })
         } else {
           next()
         }
       })
     } catch (err) {
-      res.status(400).json({ error: 'invalid url' })
+      res.json({ error: 'invalid url' })
     }
   }
 ]
